@@ -1,0 +1,38 @@
+FUNCTION palindrome(ch:STRING[]) : BOOLEAN
+VAR
+ result: BOOLEAN:=true;
+ i:INTEGER;   
+BEGIN
+    IF (ch=="") or (ch.length==1) THEN
+        RETURN result
+    ELSE
+        FOR i FROM 0 TO ch.length-1 STEP 1  DO
+            WHILE (result == true) DO
+                IF (Uppercase(ch[i]) == Uppercase(ch[-i-1]))
+                 RETURN result
+                ELSE
+                    result:=false
+                 RETURN result
+                END_IF    
+            END_WHILE
+
+        END_FOR
+    END_IF
+END
+ALGORITHM palindrome
+VAR
+    ch:STRING[];
+    result:BOOLEAN;
+BEGIN
+    REPEAT
+         write("give me a word");
+         read(ch);
+    UNTIL (ch!="")
+    result:=palindrome(ch);
+    IF (result==TRUE) THEN
+        write(ch,"is a palindrome")
+    ELSE
+        write(ch,"is not palindrome")
+    END_IF
+
+END
